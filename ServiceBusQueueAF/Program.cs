@@ -1,4 +1,5 @@
 ﻿using Microsoft.ServiceBus.Messaging;
+using Microsoft.ServiceBus;
 using System;
 
 namespace ServiceBusQueueAF
@@ -13,14 +14,24 @@ namespace ServiceBusQueueAF
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
 
+            var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+            if (!namespaceManager.QueueExists(queueName))
+            {
+                namespaceManager.CreateQueue(queueName);
+            }
+
             var testMessage = "";
 
+            Console.WriteLine("Type \"exit\" to escape program.");
             do
             {
+                Console.Write("Enter a message to send to the queue: ");
                 testMessage = Console.ReadLine();
                 var message = new BrokeredMessage(testMessage);
-                client.Send(message);
-            } while (testMessage.Equals("exit"));
+                if(!testMessage.Equals("exit"))
+                    client.Send(message);
+            } while (!testMessage.Equals("exit"));
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusQueueAF", "Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusQueueRAF", "ServiceBusQueueRAF\ServiceBusQueueRAF.csproj", "{078A2AA7-ED53-4B64-B725-14B99A9D58FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusTopicAF", "ServiceBusTopicAF\ServiceBusTopicAF.csproj", "{13747AA2-A5F8-4AA1-927F-86EF68CA32A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{078A2AA7-ED53-4B64-B725-14B99A9D58FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{078A2AA7-ED53-4B64-B725-14B99A9D58FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078A2AA7-ED53-4B64-B725-14B99A9D58FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13747AA2-A5F8-4AA1-927F-86EF68CA32A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13747AA2-A5F8-4AA1-927F-86EF68CA32A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13747AA2-A5F8-4AA1-927F-86EF68CA32A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13747AA2-A5F8-4AA1-927F-86EF68CA32A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
