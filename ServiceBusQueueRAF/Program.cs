@@ -1,11 +1,11 @@
 ﻿using Microsoft.ServiceBus.Messaging;
 using System;
 
-namespace ServiceBusQueueAF
+namespace ServiceBusQueueRAF
 {
     class Program
     {
-        // Writer
+        // Reader
         static void Main(string[] args)
         {
             var connectionString = "Endpoint=sb://eclevelandservicebusaf.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=dzrOCux78uVqppyQiWoIYVdqZLlcnGTUb2Z1KzlQBq8=";
@@ -13,14 +13,13 @@ namespace ServiceBusQueueAF
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
 
-            var testMessage = "";
+            client.OnMessage(message => {
+                Console.WriteLine(String.Format("Message Id: {0}", message.MessageId));
+                Console.WriteLine(String.Format("Message Body: {0}", message.GetBody<string>()));
+                Console.WriteLine(String.Format("Session Id: {0}", message.SessionId));
+            });
 
-            do
-            {
-                testMessage = Console.ReadLine();
-                var message = new BrokeredMessage(testMessage);
-                client.Send(message);
-            } while (testMessage.Equals("exit"));
+            Console.ReadLine();
         }
     }
 }
